@@ -1,9 +1,10 @@
-import styles from './botaoPrimario.module.css';
+import './botaoPrimario.css';
 
-export default function BotaoPrimario({texto}){
+export default function BotaoPrimario({texto, classe}){
+    
     return(
         <>
-            <input type='button' className={styles.botao__primario} value={texto} />
+            <input type='button' className={`botaoPrimario ${classe}`} value={texto} />
         </>
     );
 }

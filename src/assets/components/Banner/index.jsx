@@ -7,7 +7,7 @@ export default function Banner(){
             <div className={styles.container__banner}>
                 <h2>Dezembro promocional</h2>
                 <p>Produtos selecionados com 33% de desconto</p>
-                <BotaoPrimario texto='Ver consoles' />
+                <BotaoPrimario texto='Ver consoles' classe='verConsoles' />
             </div>
         </section>
     );

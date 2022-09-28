@@ -1,9 +1,9 @@
-import styles from './botaoSecundario.module.css';
+import './botaoSecundario.css';
 
-export default function BotaoSecundario({texto}){
+export default function BotaoSecundario({texto, classe}){
     return(
         <>
-            <input type='button' className={styles.botao__secundario} value={texto} />
+            <input type='button' className={`botaoSecundario ${classe}`} value={texto} />
         </>
     );
 }

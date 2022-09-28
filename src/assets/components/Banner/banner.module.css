@@ -5,7 +5,7 @@
     color: white;
     font-family: var(--fonte);
     height: 192px;
-    width: auto;
+    width: 100%;
 }
 
 .container__banner {
@@ -15,6 +15,7 @@
     height: 192px;
     justify-content: space-between;
     margin: 0 auto;
+    max-width: 1440px;
     padding-top: 78px;
     width: 90%;
 }
@@ -35,7 +36,7 @@
 
 @media (min-width: 750px) {
     .secao__banner {
-        background-size: auto 352px;
+        background-size: cover;
         height: 352px;
     }
     
@@ -54,5 +55,12 @@
         font-size: 22px;
         line-height: 26px;
         width: 100%;
+    }
+}
+
+
+@media (min-width: 1300px) {   
+    .container__banner {
+        padding-top: 150px;
     }
 }

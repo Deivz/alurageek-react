@@ -1,4 +1,4 @@
-.botao__primario {
+.botaoPrimario{
     background-color: var(--botao-primario);
     border: none;
     color: white;
@@ -6,25 +6,32 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    height: 40px;
     line-height: 16px;
-    width: 120px;
 }
 
-.botao__primario:hover {
+.botaoPrimario:hover {
     background-color: var(--botao-primario-hover);
 }
 
-@media (min-width: 750px) {
-    .botao__primario {
-        height: 40px;
-        width: 166px; 
-    }
+.verConsoles {
+    height: 40px;
+    width: 119px;
 }
 
+.enviarMensagem{
+    height: 40px;
+    width: 151px;
+}
+
+
 @media (min-width: 1300px) {
-    .botao__primario {
+    .verConsoles {
         height: 51px;
-        width: 182px; 
+        width: 130px; 
+    }
+
+    .enviarMensagem{
+        height: 51px;
+        width: 165px;
     }
 }
