@@ -1,0 +1,30 @@
+.botao__primario {
+    background-color: var(--botao-primario);
+    border: none;
+    color: white;
+    font-family: var(--fonte);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    height: 40px;
+    line-height: 16px;
+    width: 120px;
+}
+
+.botao__primario:hover {
+    background-color: var(--botao-primario-hover);
+}
+
+@media (min-width: 750px) {
+    .botao__primario {
+        height: 40px;
+        width: 166px; 
+    }
+}
+
+@media (min-width: 1300px) {
+    .botao__primario {
+        height: 51px;
+        width: 182px; 
+    }
+}

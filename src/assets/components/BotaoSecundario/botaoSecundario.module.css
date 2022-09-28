@@ -1,0 +1,30 @@
+.botao__secundario {
+    background-color: var(--botao-secundario);
+    border: 1px solid var(--botao-primario);
+    color: var(--botao-primario);
+    font-family: var(--fonte);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    height: 40px;
+    line-height: 16px;
+    width: 133px;
+}
+
+.botao__secundario:hover {
+    background-color: var(--botao-secundario-hover);
+}
+
+@media (min-width: 750px) {
+    .botao__secundario {
+        height: 40px;
+        width: 166px; 
+    }
+}
+
+@media (min-width: 1300px) {
+    .botao__secundario {
+        height: 51px;
+        width: 182px; 
+    }
+}

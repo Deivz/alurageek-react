@@ -1,0 +1,79 @@
+.secao__cabecalho {
+    width: 100%;
+}
+
+.container__cabecalho {
+    align-items: center;
+    display: flex;
+    height: 72px;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.logo {
+    height: 28px;
+    width: 100px;
+}
+
+.container__buscar {
+    display: none;
+}
+
+@media (min-width: 750px) {
+    .container__cabecalho {
+        max-width: 768px;
+    }
+
+    .lupa {
+        display: none;
+    }
+
+    .login {
+        order: 2;
+    }
+
+    .container__buscar {
+        align-items: center;
+        display: flex;
+        justify-content: flex-start;
+        margin-right: 140px;
+    }
+
+    .campo__buscar {
+        background: #F5F5F5;
+        border: none;
+        border-radius: 20px;
+        display: initial;
+        height: 40px;
+        padding: 8px 16px;
+        width: 272px;
+    }
+
+    .icone__lupa {
+        margin-left: 235px;
+        margin-top: 5px;
+        opacity: .5;
+        position: absolute;
+    }
+}
+
+@media (min-width: 1300px) {
+    .container__cabecalho {
+        max-width: 1440px;
+    }
+
+    .logo {
+        height: 50px;
+        width: 176px;
+    }
+
+    .campo__buscar {
+        margin-right: 300px;
+        width: 393px;
+    }
+
+    .icone__lupa {
+        margin-left: 350px;
+    }
+}
