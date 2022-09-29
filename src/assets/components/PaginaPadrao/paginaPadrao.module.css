@@ -21,6 +21,7 @@
     display: none;
 }
 
+
 @media (min-width: 750px) {
     .lupa {
         display: none;
@@ -55,6 +56,7 @@
         position: absolute;
     }
 }
+
 
 @media (min-width: 1300px) {
     .logo {

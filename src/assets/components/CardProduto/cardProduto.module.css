@@ -1,0 +1,59 @@
+.card {
+    color: #464646;
+    font-family: var(--fonte);
+    font-style: normal;
+    margin-bottom: 1rem;
+}
+
+.imagem__produto {
+    height: 174px;
+    width: 156px;
+}
+
+.nome__produto {
+    font-size: 14px;
+    font-weight: 500;
+    height: 16px;
+    line-height: 16px;
+    width: 156px;
+}
+
+.preco__produto {
+    font-size: 16px;
+    font-weight: 700;
+    height: 19px;
+    line-height: 19px;
+    width: 156px;
+}
+
+.card h4, .card p, .card a{
+    padding-bottom: 1.5rem;
+}
+
+.card a {
+    color: var(--botao-primario);
+    font-size: 14px;
+    font-weight: 700;
+    height: 16px;
+    line-height: 16px;
+    width: 80px;
+}
+
+@media (min-width: 750px) {
+    .imagem__produto {
+        width: 164px;
+    }
+
+    .card a {
+        font-size: 16px;
+        height: 19px;
+        line-height: 19px;
+        width: 91px;
+    }
+}
+
+@media (min-width: 1300px) {
+    .imagem__produto {
+        width: 176px;
+    }
+}
