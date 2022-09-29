@@ -1,19 +1,17 @@
 // import styles from './home.module.css';
 import Banner from '../../components/Banner/index';
 import Secao from '../../components/Secao';
-// import { consoleProdutos, swProdutos } from '../../utils/produtos.js';
+import { produtos } from '../../utils/produtos.js';
 
-export default function Home(){
-
-    // const PRODUTOS = {
-    //     swProdutos: swProdutos,
-    //     consoleProdutos: consoleProdutos
-    // };
-
-    return(
+export default function Home() {
+    return (
         <>
             <Banner />
-            <Secao />
+            {
+                produtos.map(produto => {
+                    return <Secao titulo={produto.titulo} produtos={produto.produtos} key={produto.id} />
+                })
+            }
         </>
     );
 }

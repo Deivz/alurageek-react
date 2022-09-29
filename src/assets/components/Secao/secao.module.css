@@ -53,6 +53,10 @@
 
 
 @media (min-width: 750px){
+    .container__produtos{
+        padding: 1rem 0;
+    }
+
     .secao__produtos__titulo {
         font-size: 22px;
         height: 26px;
