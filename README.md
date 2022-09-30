@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+<p align="center">
+<img src="https://user-images.githubusercontent.com/78604613/193334745-a0523979-c40e-45c2-b008-7d6f6c7c7b91.png" alt="Logo da Alura Geek" />
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Alura Front End Challenge #5 - Alura Geek
 
-## Available Scripts
+Repositório criado para o desafio de front end da Alura edição de número 5. O projeto consiste na elaboração de um site para venda de produtos online voltados para o mundo geek, onde o usuário pode se cadastrar, realizar o login, colocar itens no carrinho e realizar a compra.
 
-In the project directory, you can run:
 
-### `npm start`
+## No que consiste o desafio
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O desafio se dá da seguinte forma: são passados alguns cards no Trello com as atividades bem como o layout no Figma. Cada card consiste em uma atividade que deve ser realizada a fim de que todo o backlog possa ser cumprido e o desenvolvedor consiga também se organizar. O layout da página pode ser visto no link abaixo:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+https://www.figma.com/file/fR9qvy3gU53s2q5efeMpy9/AluraGeek---Challenge?node-id=0%3A1
 
-### `npm test`
+É aconselhado seguir o modelo indicado ao invés de desenvolver um próprio para fins de correção/comparação, entretanto a forma de implementar e a adição de recursos e/ou melhorias fica a critério do desenvolvedor.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Abaixo estão os links com os cards das atividades:
 
-### `npm run build`
+https://trello.com/b/YahtquUC/challenge-front-end-semana-1
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Expectativas com o projeto
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+O projeto deve ser entregue conforme solicitado via Figma e Trello, como já mencionado. Espera-se que com o desafio o desenvolvedor possa por em prática seus conhecimentos seguindo um escopo de atividades que se assemelha as demandas de trabalho em uma empresa. Minha expectativa pessoal é a criação de uma SPA, utilizando React.JS, que seja o mais próximo possível do solicitado. O desafio ainda está em andamento, assim que concluído este arquivo será editado!
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Tecnologias e ferramentas utilizadas
+### `React.js`
+Como já mencionado, o projeto está sendo desenvolvido em React.js. O foco dessa escolha é o aperfeiçoamento do conhecimento teórico e prático nesta biblioteca que é uma das mais utilizadas no mundo, além é claro de tornar o desenvolvimento dinâmico e atingir o objetivo de forma mais rápida e eficaz.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `CSS puro`
+Para fins de prática optei por fazer o estilo da página todo em CSS puro, sem a utilização de nenhum framework ou pré-processador.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### `React-router-dom`
+Para a implementação das rotas foi utilizado o react-router-dom, pois é uma ferramenta bastante popular além de fácil implementação.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### `Material UI`
+Para a inclusão dos campos do formulário foi utilizado o MUI, uma vez que ele já traz componentes prontos, agregando ao projeto agilidade e segurança. A escolha desta biblioteca em questão foi visando a prática bem como por ser bastante utilizada no mercado (sendo confiável e eficaz).
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Projeto ainda em construção, até o momento estamos na semana 1, tão logo as próximas atividades forem enviadas aparecerão aqui
