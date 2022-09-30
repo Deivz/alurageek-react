@@ -6,10 +6,21 @@
   --botao-secundario: transparent;
   --botao-secundario-hover: #D4E4FA;
   --fonte: 'Raleway', sans-serif;
+  --placeholder: #A2A2A2;
+  --rodape: #EAF2FD;
+  --texto-padrao: #464646;
 }
 
 *{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body{
+  font-family: var(--fonte);
+}
+
+fieldset{
+  border: none;
 }

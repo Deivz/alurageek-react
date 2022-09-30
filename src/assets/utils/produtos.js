@@ -108,7 +108,7 @@ export const produtos = [
             {
                 'id': 4,
                 'imagem': '/images/oculosvr.png',
-                'nome': 'Óculo VR',
+                'nome': 'Óculos VR',
                 'preco': '$ 3500,00'
             },
             {

@@ -1,3 +1,4 @@
+/*--- CSS DO TOPO ---*/
 .secao__cabecalho {
     width: 100%;
 }
@@ -12,7 +13,7 @@
     width: 90%;
 }
 
-.logo {
+.logo__topo {
     height: 28px;
     width: 100px;
 }
@@ -22,7 +23,53 @@
 }
 
 
+/*--- CSS DO RODAPE ---*/
+.rodape {
+    color: var(--texto-padrao);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 19px;
+}
+
+.secao__infos__rodape {
+    background-color: var(--rodape);
+    height: 580px;
+}
+
+.container__rodape {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    max-width: 1440px;
+    width: 90%;
+}
+
+.logo__rodape,
+.lista__rodape {
+    list-style: none;
+    text-align: center;
+}
+
+.lista__rodape li {
+    padding: .5rem 0;
+}
+
+.formulario__rodape legend {
+    font-weight: 700;
+}
+
+.secao__dev__rodape{
+    padding: 32px 0;
+    text-align: center;
+}
+
+
 @media (min-width: 750px) {
+
+    /*--- CSS DO TOPO ---*/
     .lupa {
         display: none;
     }
@@ -55,11 +102,41 @@
         opacity: .5;
         position: absolute;
     }
+
+
+    /*--- CSS DO RODAPE ---*/
+    .secao__infos__rodape {
+        height: 400px;
+    }
+
+    .container__rodape {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logo__rodape,
+    .lista__rodape {
+        text-align: left;
+    }
+
+    .lista__rodape li {
+        padding: 1rem 0;
+    }
+
+    .formulario__rodape fieldset {
+        max-width: 600px;
+        position: relative;
+        top: -45px;
+        width: 65vw;
+    }
 }
 
 
 @media (min-width: 1300px) {
-    .logo {
+
+    /*--- CSS DO TOPO ---*/
+    .logo__topo {
         height: 50px;
         width: 176px;
     }
@@ -71,5 +148,18 @@
 
     .icone__lupa {
         margin-left: 350px;
+    }
+
+
+    /*--- CSS DO RODAPE ---*/
+    .nav__rodape{
+        display: flex;
+        justify-content: inherit;
+        max-width: 600px;
+        width: 35vw;
+    }
+
+    .formulario__rodape fieldset {
+        position: static;
     }
 }

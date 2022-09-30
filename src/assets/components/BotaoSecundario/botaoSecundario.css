@@ -2,7 +2,6 @@
     background-color: var(--botao-secundario);
     border: 1px solid var(--botao-primario);
     color: var(--botao-primario);
-    font-family: var(--fonte);
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
