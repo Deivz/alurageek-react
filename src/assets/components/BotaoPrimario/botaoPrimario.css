@@ -22,6 +22,11 @@
     width: 151px;
 }
 
+.entrar{
+    height: 40px;
+    width: 109px;
+}
+
 
 @media (min-width: 1300px) {
     .verConsoles {
@@ -32,5 +37,10 @@
     .enviarMensagem{
         height: 51px;
         width: 165px;
+    }
+
+    .entrar{
+        height: 62px;
+        width: 423px;
     }
 }

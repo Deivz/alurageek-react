@@ -1,0 +1,27 @@
+.secao__login{
+    align-items: center;
+    background-color: rgba(235, 235, 235, 0.5);
+    color: var(--texto-padrao);
+    display: flex;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 19px;
+    min-height: calc(100vh - 574px);
+}
+
+.formulario__login{
+    padding: 2rem 0;
+    width: 100%;
+}
+
+.formulario__login legend {
+    font-weight: 700;
+}
+
+.formulario__login fieldset {
+    margin: 0 auto;
+    max-width: 423px;
+    width: 90%;
+}

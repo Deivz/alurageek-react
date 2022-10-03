@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PaginaPadrao from './assets/components/PaginaPadrao';
 import Home from './assets/pages/Home';
+import Login from './assets/pages/Login';
 
 export default function AppRouter() {
     return (
@@ -8,7 +9,7 @@ export default function AppRouter() {
             <Routes>
                 <Route path='/' element={<PaginaPadrao />}>
                     <Route index element={<Home />} />
-                    {/* <Route path='cadastro' element={<Cadastro />} /> */}
+                    <Route path='login' element={<Login />} />
                 </Route>
             </Routes>
         </Router>

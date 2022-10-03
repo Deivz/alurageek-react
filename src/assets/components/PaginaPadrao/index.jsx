@@ -2,7 +2,7 @@ import styles from './paginaPadrao.module.css';
 import logo from '../../images/Logo.png';
 import BotaoSecundario from '../BotaoSecundario';
 import Lupa from '../Lupa';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { TextField } from '@mui/material';
 import BotaoPrimario from '../BotaoPrimario';
 
@@ -11,8 +11,8 @@ export default function PaginaPadrao() {
       <>
          <header className={styles.secao__cabecalho}>
             <div className={styles.container__cabecalho}>
-               <h1><a href='#'><img src={logo} alt='Logo da Alura Geek' className={styles.logo__topo} /></a></h1>
-               <div className={styles.login}><BotaoSecundario texto='Login' classe='login' /></div>
+               <h1><Link to='/'><img src={logo} alt='Logo da Alura Geek' className={styles.logo__topo} /></Link></h1>
+               <div className={styles.login}><Link to='login'><BotaoSecundario texto='Login' classe='login' /></Link></div>
                <div className={styles.lupa}><Lupa /></div>
                <div className={styles.container__buscar}>
                   <input type='text' placeholder='O que deseja encontrar?' className={styles.campo__buscar} />
