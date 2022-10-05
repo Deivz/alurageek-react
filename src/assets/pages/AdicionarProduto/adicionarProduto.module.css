@@ -1,0 +1,26 @@
+.secao__adicionarProduto{
+    align-items: center;
+    color: var(--texto-padrao);
+    display: flex;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    justify-content: center;
+    line-height: 20px;
+    min-height: calc(100vh - 574px);
+}
+
+.container__adicionarProduto{
+    padding: 2rem 0;
+}
+
+
+@media (min-width: 1300px){
+    .container__adicionarProduto{
+        width: 560px;
+    }
+
+    .formulario__produto{
+        margin: 0 auto;
+    }
+}

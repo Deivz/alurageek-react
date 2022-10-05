@@ -46,37 +46,37 @@ export const produtos = [
         'titulo': 'Consoles',
         'produtos': [
             {
-                'id': 1,
+                'id': 7,
                 'imagem': '/images/controleswitch.png',
                 'nome': 'Controle Switch',
                 'preco': 'R$ 390,99'
             },
             {
-                'id': 2,
+                'id': 8,
                 'imagem': '/images/controlexbox.png',
                 'nome': 'Controle XBox One',
                 'preco': 'R$ 455,50'
             },
             {
-                'id': 3,
+                'id': 9,
                 'imagem': '/images/gameboy.png',
                 'nome': 'Game Boy Classic',
                 'preco': 'R$ 940,00'
             },
             {
-                'id': 4,
+                'id': 10,
                 'imagem': '/images/nes.png',
                 'nome': 'Nintendo 8 Bits',
                 'preco': '$ 500,00'
             },
             {
-                'id': 5,
+                'id': 11,
                 'imagem': '/images/playstation.png',
                 'nome': 'PlayStation 5',
                 'preco': 'R$ 3290,00'
             },
             {
-                'id': 6,
+                'id': 12,
                 'imagem': '/images/xbox.png',
                 'nome': 'XBox One',
                 'preco': 'R$ 3240,00'
@@ -88,37 +88,37 @@ export const produtos = [
         'titulo': 'Diversos',
         'produtos': [
             {
-                'id': 1,
+                'id': 13,
                 'imagem': '/images/camisetacontrole.png',
                 'nome': 'Camiseta Joystick',
                 'preco': 'R$ 49,99'
             },
             {
-                'id': 2,
+                'id': 14,
                 'imagem': '/images/camisetaatari.png',
                 'nome': 'Camiseta Atari',
                 'preco': 'R$ 55,50'
             },
             {
-                'id': 3,
+                'id': 15,
                 'imagem': '/images/relogiovintage.png',
                 'nome': 'Relógio Vintage',
                 'preco': 'R$ 120,00'
             },
             {
-                'id': 4,
+                'id': 16,
                 'imagem': '/images/oculosvr.png',
                 'nome': 'Óculos VR',
                 'preco': '$ 3500,00'
             },
             {
-                'id': 5,
+                'id': 17,
                 'imagem': '/images/sonic.png',
                 'nome': 'AF Sonic',
                 'preco': 'R$ 290,00'
             },
             {
-                'id': 6,
+                'id': 18,
                 'imagem': '/images/pikachu.png',
                 'nome': 'Fantasia Pikachu',
                 'preco': 'R$ 1240,00'

@@ -27,6 +27,11 @@
     width: 109px;
 }
 
+.adicionar{
+    height: 51px;
+    width: 100%;
+}
+
 
 @media (min-width: 1300px) {
     .verConsoles {

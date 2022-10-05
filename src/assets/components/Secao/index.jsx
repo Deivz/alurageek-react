@@ -3,11 +3,11 @@ import seta from '../../images/Arrow.png';
 import CardProduto from '../CardProduto';
 import { useContext } from 'react';
 import { ScreenContext } from '../../../contexts/ScreenContext';
-// import { useState } from 'react';
 
 export default function Secao({titulo, produtos}) {
 
    const {desktopScreen} = useContext(ScreenContext);
+   let contador = 0;
 
    return (
       <section className={styles.secao__produtos}>
@@ -24,7 +24,8 @@ export default function Secao({titulo, produtos}) {
                   })
                   :
                   produtos.map(produto => {
-                     if (produto.id < 5) {
+                     contador++;
+                     if (contador < 5) {
                         return <CardProduto admin={false} produto={produto} key={produto.id} />
                      }
                   })

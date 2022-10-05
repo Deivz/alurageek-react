@@ -8,8 +8,8 @@ export default function Home() {
         <>
             <Banner />
             {
-                produtos.map(produto => {
-                    return <Secao titulo={produto.titulo} produtos={produto.produtos} key={produto.id} />
+                produtos.map(categoria => {
+                    return <Secao titulo={categoria.titulo} produtos={categoria.produtos} key={categoria.id} />
                 })
             }
         </>
