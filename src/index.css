@@ -12,13 +12,6 @@
   --texto-padrao: #464646;
 }
 
-/* #root{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-} */
-
 *{
   box-sizing: border-box;
   margin: 0;
@@ -29,7 +22,16 @@ body{
   font-family: var(--fonte);
 }
 
+main{
+  background-color: rgba(235, 235, 235, 0.5);
+}
 
 fieldset{
   border: none;
+}
+
+.container{
+  margin: 0 auto;
+  max-width: 1440px;
+  width: 90%;
 }

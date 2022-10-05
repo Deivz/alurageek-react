@@ -13,10 +13,7 @@
     flex-wrap: wrap;
     height: 192px;
     justify-content: space-between;
-    margin: 0 auto;
-    max-width: 1440px;
     padding-top: 78px;
-    width: 90%;
 }
 
 .container__banner h2 {

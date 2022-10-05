@@ -1,3 +1,4 @@
+import '../../../index.css';
 import styles from './paginaPadrao.module.css';
 import logo from '../../images/Logo.png';
 import BotaoSecundario from '../BotaoSecundario';
@@ -10,7 +11,7 @@ export default function PaginaPadrao() {
    return (
       <>
          <header className={styles.secao__cabecalho}>
-            <div className={styles.container__cabecalho}>
+            <div className={`${styles.container__cabecalho} container`}>
                <h1><Link to='/'><img src={logo} alt='Logo da Alura Geek' className={styles.logo__topo} /></Link></h1>
                <div className={styles.login}><Link to='login'><BotaoSecundario texto='Login' classe='login' /></Link></div>
                <div className={styles.lupa}><Lupa /></div>
@@ -25,7 +26,7 @@ export default function PaginaPadrao() {
          </main>
          <footer className={styles.rodape}>
             <div className={styles.secao__infos__rodape}>
-               <div className={styles.container__rodape}>
+               <div className={`${styles.container__rodape} container`}>
                   <nav className={styles.nav__rodape}>
                      <h2 className={styles.logo__rodape}><img src={logo} alt='Logo da Alura Geek' /></h2>
                      <ul className={styles.lista__rodape}>

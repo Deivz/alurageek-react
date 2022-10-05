@@ -1,6 +1,5 @@
 .secao__login{
     align-items: center;
-    background-color: rgba(235, 235, 235, 0.5);
     color: var(--texto-padrao);
     display: flex;
     font-size: 16px;

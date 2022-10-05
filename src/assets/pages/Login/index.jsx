@@ -1,6 +1,7 @@
-import styles from './login.module.css'
+import styles from './login.module.css';
 import { TextField } from '@mui/material';
 import BotaoPrimario from '../../components/BotaoPrimario';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
     return (
@@ -40,7 +41,7 @@ export default function Login() {
                             }
                         }
                     />
-                    <BotaoPrimario classe='entrar' texto='Entrar' tipo='submit' />
+                    <Link to='/produtos'><BotaoPrimario classe='entrar' texto='Entrar' tipo='button' /></Link>
                 </fieldset>
             </form>
         </section>
