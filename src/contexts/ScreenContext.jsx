@@ -13,6 +13,7 @@ export default function ScreenContextProvider({children}){
           setDesktopScreen(false);
        }
     }
+
     window.addEventListener('load', checarMedia);
     window.addEventListener('resize', checarMedia);
 

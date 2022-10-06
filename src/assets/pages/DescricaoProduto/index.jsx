@@ -1,21 +1,54 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProdutosContext } from '../../../contexts/ProdutosContext';
-import { produtos } from '../../utils/produtos';
+import Secao from '../../components/Secao';
 import styles from './descricaoProduto.module.css';
 
 export default function DescricaoProduto() {
 
+    const { categorias } = useContext(ProdutosContext);
     const parametros = useParams();
-    // const { produtosPorCategoria } = useContext(ProdutosContext);
+    const [produto, setProduto] = useState([]);
+    const [produtoPorCategoria, setProdutoPorCategoria] = useState();
 
-    // const produto = produtosPorCategoria.filter(produtos => produtos.produtos.find(produto => produto.id === 1));
-    const produto = produtos.filter(categorias => categorias.produtos.find(produto => produto.id));
-   
+    useEffect(() => {
+        const categoria = categorias.find(categoria => categoria.produtos.find(produto => (produto.id === parseInt(parametros.id))));
+        setProdutoPorCategoria(categoria);
+        setProduto(categoria.produtos.find(produto => produto.id === parseInt(parametros.id)))
+    }, [categorias, parametros]);
+
     return (
-        <section className={`${styles.secao__descricaoProduto} container`}>
-            {/* <img src={produto.imagem} alt='Foto do produto' /> */}
-            {console.log(produto)}
-        </section>
+        <>
+            <section>
+                <div className={styles.imagem__mobile}
+                    style={
+                        {
+                            backgroundImage: `url(${produto.imagem})`,
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            height: "192px"
+                        }
+                    }
+                >
+                    <img src='' alt='Imagem do produto' />
+                </div>
+                <div className={`${styles.informacoes} container`}>
+                    <div>
+                        <img className={styles.imagem} src={produto.imagem} alt='Imagem do produto' />
+                    </div>
+                    <div>
+                        <h2 className={styles.titulo__produto}>{produto.nome}</h2>
+                        <p className={styles.preco__produto}>{produto.preco}</p>
+                        <p className={styles.descricao__produto}>{produto.descricao}</p>
+                    </div>
+                </div>
+            </section>
+            {produtoPorCategoria &&
+                <>
+                    <Secao titulo='Produtos similares' produtos={produtoPorCategoria.produtos} verTudo={false} />
+                </>
+            }
+        </>
     );
 }

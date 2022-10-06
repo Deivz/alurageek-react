@@ -14,7 +14,7 @@ export default function Home() {
             <div className={styles.secao__produtos}>
                 {
                     produtos.map(categoria => {
-                        return <Secao titulo={categoria.titulo} produtos={categoria.produtos} key={categoria.id} />
+                        return <Secao titulo={categoria.titulo} produtos={categoria.produtos} verTudo={true} key={categoria.id} />
                     })
                 }
             </div>

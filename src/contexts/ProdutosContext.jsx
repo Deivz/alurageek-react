@@ -5,10 +5,10 @@ export const ProdutosContext = createContext();
 
 export default function ProdutosContextProvider({ children }){
 
-    // const produtosPorCategoria = produtos.map(categoria => categoria.produtos);
+    const categorias = produtos.map(categoria => categoria);
 
     return(
-        <ProdutosContext.Provider value={{ produtos }}>
+        <ProdutosContext.Provider value={{ categorias, produtos }}>
             { children }
         </ProdutosContext.Provider>
     );

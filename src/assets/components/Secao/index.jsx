@@ -4,7 +4,7 @@ import CardProduto from '../CardProduto';
 import { useContext } from 'react';
 import { ScreenContext } from '../../../contexts/ScreenContext';
 
-export default function Secao({ titulo, produtos }) {
+export default function Secao({ produtos, titulo, verTudo }) {
 
    const { desktopScreen } = useContext(ScreenContext);
    let contador = 0;
@@ -14,10 +14,14 @@ export default function Secao({ titulo, produtos }) {
          <div className='container'>
             <div className={styles.titulo}>
                <h3>{titulo}</h3>
-               <div className={styles.verTudo}>
-                  <p>Ver tudo</p>
-                  <img src={seta} alt='Seta indicando para a direita' className={styles.seta} />
-               </div>
+               {
+                  verTudo
+                     &&
+                     <div className={styles.verTudo}>
+                        <p>Ver tudo</p>
+                        <img src={seta} alt='Seta indicando para a direita' className={styles.seta} />
+                     </div>
+               }
             </div>
             <div className={styles.produtos}>
                {desktopScreen
