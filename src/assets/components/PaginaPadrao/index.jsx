@@ -1,4 +1,3 @@
-import '../../../index.css';
 import styles from './paginaPadrao.module.css';
 import logo from '../../images/Logo.png';
 import BotaoSecundario from '../BotaoSecundario';
@@ -10,13 +9,23 @@ import BotaoPrimario from '../BotaoPrimario';
 export default function PaginaPadrao() {
    return (
       <>
-         <header className={styles.secao__cabecalho}>
-            <div className={`${styles.container__cabecalho} container`}>
-               <h1><Link to='/'><img src={logo} alt='Logo da Alura Geek' className={styles.logo__topo} /></Link></h1>
-               <div className={styles.login}><Link to='login'><BotaoSecundario texto='Login' classe='login' /></Link></div>
-               <div className={styles.lupa}><Lupa /></div>
-               <div className={styles.container__buscar}>
-                  <input type='text' placeholder='O que deseja encontrar?' className={styles.campo__buscar} />
+         <header>
+            <div className={`${styles.topo} container`}>
+               <h1>
+                  <Link to='/'>
+                     <img src={logo} alt='Logo da Alura Geek' className={styles.logo__topo} />
+                  </Link>
+               </h1>
+               <div className={styles.login}>
+                  <Link to='login'>
+                     <BotaoSecundario texto='Login' classe='login' />
+                  </Link>
+               </div>
+               <div className={styles.lupa}>
+                  <Lupa />
+               </div>
+               <div className={styles.buscar}>
+                  <input type='text' placeholder='O que deseja encontrar?' className={styles.campo__busca} />
                   <i className={styles.icone__lupa}><Lupa /></i>
                </div>
             </div>
@@ -24,9 +33,9 @@ export default function PaginaPadrao() {
          <main>
             <Outlet />
          </main>
-         <footer className={styles.rodape}>
-            <div className={styles.secao__infos__rodape}>
-               <div className={`${styles.container__rodape} container`}>
+         <footer>
+            <div className={styles.rodape__secaoUm}>
+               <div className={`${styles.rodape} container`}>
                   <nav className={styles.nav__rodape}>
                      <h2 className={styles.logo__rodape}><img src={logo} alt='Logo da Alura Geek' /></h2>
                      <ul className={styles.lista__rodape}>
@@ -80,7 +89,7 @@ export default function PaginaPadrao() {
                   </form>
                </div>
             </div>
-            <div className={styles.secao__dev__rodape}>
+            <div className={styles.rodape__secaoDois}>
                <p>Desenvolvido por Davi Oliveira</p>
                <p>2022</p>
             </div>

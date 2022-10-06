@@ -1,9 +1,5 @@
 /*--- CSS DO TOPO ---*/
-.secao__cabecalho {
-    width: 100%;
-}
-
-.container__cabecalho {
+.topo {
     align-items: center;
     display: flex;
     height: 72px;
@@ -15,26 +11,18 @@
     width: 100px;
 }
 
-.container__buscar {
+.buscar {
     display: none;
 }
 
 
 /*--- CSS DO RODAPE ---*/
-.rodape {
-    color: var(--texto-padrao);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 19px;
-}
-
-.secao__infos__rodape {
+.rodape__secaoUm {
     background-color: var(--rodape);
     height: 580px;
 }
 
-.container__rodape {
+.rodape {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -51,11 +39,7 @@
     padding: .5rem 0;
 }
 
-.formulario__rodape legend {
-    font-weight: 700;
-}
-
-.secao__dev__rodape{
+.rodape__secaoDois{
     height: 102px;
     padding: 32px 0;
     text-align: center;
@@ -73,7 +57,7 @@
         order: 2;
     }
 
-    .container__buscar {
+    .buscar {
         align-items: center;
         display: flex;
         flex-grow: 1;
@@ -81,8 +65,8 @@
         margin-left: 32px;
     }
 
-    .campo__buscar {
-        background: #F5F5F5;
+    .campo__busca {
+        background: var(--cinza-claro);
         border: none;
         border-radius: 20px;
         display: initial;
@@ -100,11 +84,11 @@
 
 
     /*--- CSS DO RODAPE ---*/
-    .secao__infos__rodape {
+    .rodape__secaoUm {
         height: 400px;
     }
 
-    .container__rodape {
+    .rodape {
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
@@ -136,7 +120,7 @@
         width: 176px;
     }
 
-    .campo__buscar {
+    .campo__busca {
         margin-right: 300px;
         width: 393px;
     }

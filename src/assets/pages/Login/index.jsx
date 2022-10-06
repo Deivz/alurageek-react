@@ -1,4 +1,3 @@
-import '../../../index.css';
 import styles from './login.module.css';
 import { TextField } from '@mui/material';
 import BotaoPrimario from '../../components/BotaoPrimario';
@@ -6,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Login() {
     return (
-        <section className={styles.secao__login}>
+        <section>
             <div className='container'>
                 <form className={styles.formulario__login}>
                     <fieldset>

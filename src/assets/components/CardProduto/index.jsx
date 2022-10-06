@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './cardProduto.module.css';
 
 export default function CardProduto({admin, produto}){
@@ -10,7 +11,9 @@ export default function CardProduto({admin, produto}){
                 admin ?
                 <p>#{produto.id}</p>
                 :
-                <a href='#'>Ver produto</a>
+                <Link to={`/produtos/${produto.id}`}>
+                    <p className={styles.verProduto}>Ver produto</p>
+                </Link>
             }
         </div>
     );

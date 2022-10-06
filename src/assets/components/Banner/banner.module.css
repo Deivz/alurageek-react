@@ -4,10 +4,9 @@
     background-size: auto 192px;
     color: white;
     height: 192px;
-    width: 100%;
 }
 
-.container__banner {
+.banner {
     align-items: flex-start;
     display: flex;
     flex-wrap: wrap;
@@ -16,18 +15,11 @@
     padding-top: 78px;
 }
 
-.container__banner h2 {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 26px;
-}
-
-.container__banner p {
-    font-style: normal;
+.banner p {
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
+    width: 100%;
 }
 
 @media (min-width: 750px) {
@@ -36,27 +28,21 @@
         height: 352px;
     }
     
-    .container__banner {
+    .banner {
         height: 352px;
         padding-top: 161px;
     }
 
-    .container__banner h2 {
-        font-size: 52px;
-        line-height: 61px;
-    }
-
-    .container__banner p {
+    .banner p {
         font-weight: 700;
         font-size: 22px;
         line-height: 26px;
-        width: 100%;
     }
 }
 
 
 @media (min-width: 1300px) {   
-    .container__banner {
+    .banner {
         padding-top: 150px;
     }
 }

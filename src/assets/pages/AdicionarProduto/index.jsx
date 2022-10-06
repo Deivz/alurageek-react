@@ -1,4 +1,3 @@
-import '../../../index.css';
 import styles from './adicionarProduto.module.css';
 import titulo from '../../components/Secao/secao.module.css';
 import { Link } from 'react-router-dom';
@@ -7,9 +6,9 @@ import BotaoPrimario from '../../components/BotaoPrimario/index';
 
 export default function AdicionarProduto() {
     return (
-        <section className={styles.secao__adicionarProduto}>
-            <div className={`${styles.container__adicionarProduto} container`}>
-                <h2 className={titulo.secao__produtos__titulo}>Adicionar novo produto</h2>
+        <section>
+            <div className={`${styles.adicionarProduto} container`}>
+                <h3>Adicionar novo produto</h3>
                 <form className={styles.formulario__produto}>
                     <fieldset>
                         <TextField

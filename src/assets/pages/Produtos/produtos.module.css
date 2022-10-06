@@ -1,29 +1,32 @@
+.secao__produtos{
+    padding: 1rem 0;
+}
+
+.topo__produtos{
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
 .produtos{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.topo__produtos{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: 120px;
-}
-
 
 @media (min-width: 750px){
-    .produtos{
-        display: grid;
-        grid-template-columns: repeat(4, auto);
-    }
-
     .topo__produtos{
         align-items: center;
         flex-direction: row;
-        justify-content: space-between;
-        height: 80px;
     }
+    
+    .produtos{
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+    }   
 }
 
 

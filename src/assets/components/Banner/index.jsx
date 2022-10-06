@@ -1,11 +1,10 @@
-import '../../../index.css';
 import styles from './banner.module.css';
 import BotaoPrimario from '../BotaoPrimario';
 
 export default function Banner(){
     return(
         <section className={styles.secao__banner}>
-            <div className={`${styles.container__banner} container`}>
+            <div className={`${styles.banner} container`}>
                 <h2>Dezembro promocional</h2>
                 <p>Produtos selecionados com 33% de desconto</p>
                 <BotaoPrimario classe='verConsoles' texto='Ver consoles' tipo='button' />
