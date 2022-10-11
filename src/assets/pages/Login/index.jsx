@@ -1,16 +1,40 @@
 import styles from './login.module.css';
 import { TextField } from '@mui/material';
 import BotaoPrimario from '../../components/BotaoPrimario';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { regExPassword } from '../../utils/regexValidation';
+import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import CampoErro from '../../components/CampoErro';
 
 export default function Login() {
+
+    let validacao = yup.object().shape({
+        email: yup.string().email().required().max(50),
+        senha: yup.string().matches(regExPassword).required().max(15)
+    });
+    
+    const navigate = useNavigate();
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(validacao)
+    }, []);
+
+    function logar(dados){
+        sessionStorage.setItem('user', dados.email);
+        navigate('/produtos');
+    }
+
     return (
         <section>
             <div className='container'>
-                <form className={styles.formulario__login}>
+                <form className={styles.formulario__login} onSubmit={handleSubmit(logar)}>
                     <fieldset>
                         <legend>Iniciar Sessão</legend>
                         <TextField
+                            {...register('email')}
+                            name='email'
+                            type='email'
                             fullWidth
                             size="small"
                             label='Escreva seu e-mail'
@@ -26,7 +50,11 @@ export default function Login() {
                                 }
                             }
                         />
+                        {errors?.email?.message && <CampoErro type={errors.email.type} field="email" />}
                         <TextField
+                            {...register('senha')}
+                            name='senha'
+                            type='password'
                             fullWidth
                             size="small"
                             label='Escreva sua senha'
@@ -42,7 +70,8 @@ export default function Login() {
                                 }
                             }
                         />
-                        <Link to='/produtos'><BotaoPrimario classe='entrar' texto='Entrar' tipo='button' /></Link>
+                        {errors?.senha?.message && <CampoErro type={errors.senha.type} field="senha" />}
+                        <BotaoPrimario classe='entrar' texto='Entrar' tipo='submit' />
                     </fieldset>
                 </form>
             </div>
