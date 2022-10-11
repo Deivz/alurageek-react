@@ -18,6 +18,11 @@
     width: 133px;
 }
 
+.menuAdministrador{
+    height: 40px;
+    width: 166px;
+}
+
 @media (min-width: 750px) {
     .login {
         height: 40px;
@@ -29,5 +34,10 @@
     .login {
         height: 51px;
         width: 182px; 
+    }
+
+    .menuAdministrador{
+        height: 51px;
+        width: 181px;
     }
 }

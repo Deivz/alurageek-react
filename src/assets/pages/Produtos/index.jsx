@@ -1,10 +1,25 @@
 import BotaoPrimario from '../../components/BotaoPrimario';
 import CardProduto from '../../components/CardProduto';
 import styles from './produtos.module.css';
-import { produtos } from '../../utils/produtos';
 import { Link } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import http from '../../../http/index.js';
+import { BuscaContext } from '../../../contexts/BuscaContext';
 
 export default function Produtos() {
+
+    const [categorias, setCategorias] = useState([]);
+
+    const { busca, setBusca } = useContext(BuscaContext);
+
+    useEffect(() => {
+        http.get('/categorias')
+            .then(categoria => {
+                setCategorias(categoria.data);
+            })
+            .catch(err => console.log(err.message));
+    }, []);
+
     return (
         <section className={styles.secao__produtos}>
             <div className='container'>
@@ -15,10 +30,18 @@ export default function Produtos() {
                     </Link>
                 </div>
                 <div className={styles.produtos}>
-                    {
-                        produtos.map(categoria => {
+                    {(busca === '') ?
+                        categorias.map(categoria => {
                             return categoria.produtos.map(produto => {
                                 return <CardProduto admin={true} produto={produto} key={produto.id} />
+                            })
+                        })
+                        :
+                        categorias.map(categoria => {
+                            return categoria.produtos.map(produto => {
+                                if(produto.nome.toUpperCase().includes(busca.toUpperCase(busca))){
+                                    return <CardProduto admin={true} produto={produto} key={produto.id} />
+                                }
                             })
                         })
                     }

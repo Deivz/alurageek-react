@@ -2,11 +2,34 @@ import styles from './paginaPadrao.module.css';
 import logo from '../../images/Logo.png';
 import BotaoSecundario from '../BotaoSecundario';
 import Lupa from '../Lupa';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { TextField } from '@mui/material';
 import BotaoPrimario from '../BotaoPrimario';
+import { useContext, useEffect, useState } from 'react';
+import { BuscaContext } from '../../../contexts/BuscaContext';
 
 export default function PaginaPadrao() {
+
+   const [logado, setLogado] = useState(false);
+   const [loginOuProdutos, setLoginOuProdutos] = useState(false);
+   const location = useLocation();
+
+
+   const {busca, enviar, setBusca} = useContext(BuscaContext);
+
+   useEffect(() => {
+      if (sessionStorage.getItem('user')) {
+         setLogado(true);
+      }
+
+      if (window.location.pathname === '/login' || window.location.pathname === '/produtos') {
+         setLoginOuProdutos(true);
+      } else {
+         setLoginOuProdutos(false);
+      }
+
+   }, [[location]]);
+
    return (
       <>
          <header>
@@ -17,17 +40,26 @@ export default function PaginaPadrao() {
                   </Link>
                </h1>
                <div className={styles.login}>
-                  <Link to='login'>
-                     <BotaoSecundario texto='Login' classe='login' />
-                  </Link>
+                  {
+                     (logado && !loginOuProdutos) &&
+                     <Link to='produtos'>
+                        <BotaoSecundario texto='Menu administrador' classe='menuAdministrador' />
+                     </Link>
+                  }
+                  {
+                     (!logado && !loginOuProdutos) &&
+                     <Link to='login'>
+                        <BotaoSecundario texto='Login' classe='login' />
+                     </Link>
+                  }
                </div>
                <div className={styles.lupa}>
                   <Lupa />
                </div>
-               <div className={styles.buscar}>
-                  <input type='text' placeholder='O que deseja encontrar?' className={styles.campo__busca} />
-                  <i className={styles.icone__lupa}><Lupa /></i>
-               </div>
+                  <form className={styles.buscar} onSubmit={enviar}>
+                     <input type='text' placeholder='O que deseja encontrar?' className={styles.campo__busca} onChange={(e) => setBusca(e.target.value)} />
+                     <i className={styles.icone__lupa}><Lupa /></i>
+                  </form>
             </div>
          </header>
          <main>
