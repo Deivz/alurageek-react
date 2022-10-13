@@ -18,8 +18,6 @@ export default function AppRouter() {
     function Private({children}){
         const { autenticado } = useContext(AutenticacaoContext);
 
-        console.log(autenticado)
-
         if(!autenticado){
             return <Navigate to='/login' />
         }
@@ -37,9 +35,8 @@ export default function AppRouter() {
                                 <Route path='/' element={<PaginaPadrao />}>
                                     <Route index element={<Home />} />
                                     <Route path='login' element={<Login />} />
-                                    <Route path='produtos' element={<Private><Produtos /></Private>}>
-                                        <Route path='/produtos/adicionar' element={<AdicionarProduto />} />
-                                    </Route>
+                                    <Route path='produtos' element={<Private><Produtos /></Private>} />
+                                    <Route path='/produtos/adicionar' element={<Private><AdicionarProduto /></Private>} />
                                     <Route path='/produtos/:id' element={<DescricaoProduto />} />
                                 </Route>
                             </Routes>

@@ -10,7 +10,7 @@ export default function Produtos() {
 
     const [categorias, setCategorias] = useState([]);
 
-    const { busca, setBusca } = useContext(BuscaContext);
+    const { busca } = useContext(BuscaContext);
 
     useEffect(() => {
         http.get('/categorias')
@@ -25,7 +25,7 @@ export default function Produtos() {
             <div className='container'>
                 <div className={styles.topo__produtos}>
                     <h3>Todos os produtos</h3>
-                    <Link to='/adicionar'>
+                    <Link to='/produtos/adicionar'>
                         <BotaoPrimario classe='adicionarProduto' texto='Adicionar Produto' tipo='button' />
                     </Link>
                 </div>

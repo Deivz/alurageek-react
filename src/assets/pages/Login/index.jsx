@@ -1,12 +1,13 @@
 import styles from './login.module.css';
 import { TextField } from '@mui/material';
 import BotaoPrimario from '../../components/BotaoPrimario';
-import { useNavigate } from 'react-router-dom';
 import { regExPassword } from '../../utils/regexValidation';
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import CampoErro from '../../components/CampoErro';
+import { useContext } from 'react';
+import { AutenticacaoContext } from '../../../contexts/AutenticacaoContext';
 
 export default function Login() {
 
@@ -15,15 +16,10 @@ export default function Login() {
         senha: yup.string().matches(regExPassword).required().max(15)
     });
     
-    const navigate = useNavigate();
+    const { logar } = useContext(AutenticacaoContext);
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(validacao)
     }, []);
-
-    function logar(dados){
-        sessionStorage.setItem('user', dados.email);
-        navigate('/produtos');
-    }
 
     return (
         <section>

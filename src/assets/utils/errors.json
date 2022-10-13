@@ -14,11 +14,26 @@
     "nome": {
         "required": "O campo nome não pode estar vazio.",
         "max": "O nome deve possuir no máximo 40 caracteres.",
-        "matches": "O campo nome não pode possuir números ou operadores."
-        
+        "matches": "O campo nome não pode possuir números ou operadores."  
     },
     "mensagem":{
         "required": "O campo mensagem não pode estar vazio.",
         "max": "O mensagem deve possuir no máximo 150 caracteres."
+    },
+    "nomeProduto":{
+        "required": "O nome do produto não pode estar vazio.",
+        "max": "O nome do produto deve possuir no máximo 20 caracteres."
+    },
+    "categoria":{
+        "required": "A categoria do produto não pode estar vazia.",
+        "max": "A categoria do produto deve possuir no máximo 20 caracteres."
+    },
+    "preco":{
+        "required": "O campo preço não pode estar vazio, possuir letras e o separador deve ser o ponto.",
+        "max": "O preço máximo permitido é 9999999999."
+    },
+    "descricao":{
+        "required": "O campo descrição não pode estar vazio.",
+        "max": "A descrição deve possuir no máximo 150 caracteres."
     }
 }
