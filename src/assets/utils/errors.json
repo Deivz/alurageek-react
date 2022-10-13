@@ -10,5 +10,15 @@
         "max": "Sua senha deve possuir no máximo 15 caracteres",
         "matches": "A senha deve conter ao menos um número, uma letra maiúscula, uma minúscula, um dos caracteres especiais ($ * & @ #) e no mínimo 6 caracteres.",
         "invalid": "Senha digitada não corresponde a senha do usuário!"
+    },
+    "nome": {
+        "required": "O campo nome não pode estar vazio.",
+        "max": "O nome deve possuir no máximo 40 caracteres.",
+        "matches": "O campo nome não pode possuir números ou operadores."
+        
+    },
+    "mensagem":{
+        "required": "O campo mensagem não pode estar vazio.",
+        "max": "O mensagem deve possuir no máximo 150 caracteres."
     }
 }

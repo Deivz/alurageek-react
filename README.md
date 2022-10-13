@@ -21,6 +21,8 @@ https://trello.com/b/YahtquUC/challenge-front-end-semana-1
 
 https://trello.com/b/DelwGaI3/challenge-front-end-semana-2
 
+https://trello.com/b/QDO2UzyY/challenge-front-end-semanas-3-e-4
+
 
 ## Expectativas com o projeto
 
@@ -40,4 +42,4 @@ Para a implementação das rotas foi utilizado o react-router-dom, pois é uma f
 ### `Material UI`
 Para a inclusão dos campos do formulário foi utilizado o MUI, uma vez que ele já traz componentes prontos, agregando ao projeto agilidade e segurança. A escolha desta biblioteca em questão foi visando a prática bem como por ser bastante utilizada no mercado (sendo confiável e eficaz).
 
-## Projeto ainda em construção, até o momento estamos na semana 2, tão logo as próximas atividades forem enviadas aparecerão aqui
+## Projeto ainda em construção, até o momento estamos na penúltima semana, tão logo as próximas atividades forem enviadas aparecerão aqui

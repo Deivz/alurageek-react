@@ -7,15 +7,41 @@ import { TextField } from '@mui/material';
 import BotaoPrimario from '../BotaoPrimario';
 import { useContext, useEffect, useState } from 'react';
 import { BuscaContext } from '../../../contexts/BuscaContext';
+import { regExName } from '../../utils/regexValidation';
+import * as yup from 'yup';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import CampoErro from '../../components/CampoErro';
 
 export default function PaginaPadrao() {
 
+   let validacao = yup.object().shape({
+      nome: yup.string().required().matches(regExName).max(40),
+      mensagem: yup.string().required().max(120)
+   });
+
+   const { register, handleSubmit, reset, formState: { errors } } = useForm({
+      resolver: yupResolver(validacao)
+   }, []);
+
+   const [ativo, setAtivo] = useState(false);
    const [logado, setLogado] = useState(false);
    const [loginOuProdutos, setLoginOuProdutos] = useState(false);
    const location = useLocation();
+   const { enviar, setBusca } = useContext(BuscaContext);
 
+   function ativarBusca() {
+      if (ativo) {
+         setAtivo(false);
+      } else {
+         setAtivo(true);
+      }
+   }
 
-   const {busca, enviar, setBusca} = useContext(BuscaContext);
+   function enviarMensagem() {
+      alert("Mensagem enviada com sucesso!");
+      reset();
+   }
 
    useEffect(() => {
       if (sessionStorage.getItem('user')) {
@@ -33,7 +59,7 @@ export default function PaginaPadrao() {
    return (
       <>
          <header>
-            <div className={`${styles.topo} container`}>
+            <div className={ativo ? `${styles.topo} ${styles.ativo} container` : `${styles.topo} container`} >
                <h1>
                   <Link to='/'>
                      <img src={logo} alt='Logo da Alura Geek' className={styles.logo__topo} />
@@ -53,13 +79,14 @@ export default function PaginaPadrao() {
                      </Link>
                   }
                </div>
-               <div className={styles.lupa}>
+               <div className={styles.lupa} onClick={ativarBusca}>
                   <Lupa />
                </div>
-                  <form className={styles.buscar} onSubmit={enviar}>
-                     <input type='text' placeholder='O que deseja encontrar?' className={styles.campo__busca} onChange={(e) => setBusca(e.target.value)} />
-                     <i className={styles.icone__lupa}><Lupa /></i>
-                  </form>
+               <form className={styles.buscar} onSubmit={enviar}>
+                  <input type='text' placeholder='O que deseja encontrar?' className={styles.campo__busca} onChange={(e) => setBusca(e.target.value)} />
+                  <i className={styles.icone__lupa} onClick={enviar} ><Lupa /></i>
+                  <i className={styles.icone__fechar} onClick={ativarBusca} >X</i>
+               </form>
             </div>
          </header>
          <main>
@@ -79,43 +106,53 @@ export default function PaginaPadrao() {
                         <li>Anuncie aqui</li>
                      </ul>
                   </nav>
-                  <form className={styles.formulario__rodape}>
+                  <form className={styles.formulario__rodape} onSubmit={handleSubmit(enviarMensagem)}>
                      <fieldset>
                         <legend>Fale conosco</legend>
-                        <TextField
-                           fullWidth
-                           size="small"
-                           label='Nome'
-                           variant='filled'
-                           sx={
-                              {
-                                 "& .MuiInputLabel-root": { color: 'gray' },
-                                 "& .MuiInputBase-root": { backgroundColor: 'white', ":hover": { backgroundColor: 'white' } },
-                                 borderRadius: 4,
-                                 marginTop: 2,
-                                 marginBottom: 2,
-                                 label: { fontFamily: 'Raleway', fontSize: 16 }
+                        <div>
+                           <TextField
+                              {...register('nome')}
+                              name='nome'
+                              fullWidth
+                              size="small"
+                              label='Nome'
+                              variant='filled'
+                              sx={
+                                 {
+                                    "& .MuiInputLabel-root": { color: 'gray' },
+                                    "& .MuiInputBase-root": { backgroundColor: 'white', ":hover": { backgroundColor: 'white' } },
+                                    borderRadius: 4,
+                                    marginTop: 2,
+                                    marginBottom: 2,
+                                    label: { fontFamily: 'Raleway', fontSize: 16 }
+                                 }
                               }
-                           }
-                        />
-                        <TextField
-                           fullWidth
-                           size="small"
-                           label='Escreva sua mensagem'
-                           variant='filled'
-                           multiline
-                           rows={3}
-                           sx={
-                              {
-                                 "& .MuiInputLabel-root": { color: 'gray' },
-                                 "& .MuiInputBase-root": { backgroundColor: 'white', ":hover": { backgroundColor: 'white' } },
-                                 borderRadius: 4,
-                                 marginTop: 2,
-                                 marginBottom: 2,
-                                 label: { fontFamily: 'Raleway', fontSize: 16 }
+                           />
+                           {errors?.nome?.message && <CampoErro type={errors.nome.type} field="nome" />}
+                        </div>
+                        <div>
+                           <TextField
+                              {...register('mensagem')}
+                              name='mensagem'
+                              fullWidth
+                              size="small"
+                              label='Escreva sua mensagem'
+                              variant='filled'
+                              multiline
+                              rows={3}
+                              sx={
+                                 {
+                                    "& .MuiInputLabel-root": { color: 'gray' },
+                                    "& .MuiInputBase-root": { backgroundColor: 'white', ":hover": { backgroundColor: 'white' } },
+                                    borderRadius: 4,
+                                    marginTop: 2,
+                                    marginBottom: 2,
+                                    label: { fontFamily: 'Raleway', fontSize: 16 }
+                                 }
                               }
-                           }
-                        />
+                           />
+                           {errors?.mensagem?.message && <CampoErro type={errors.mensagem.type} field="mensagem" />}
+                        </div>
                         <BotaoPrimario classe='enviarMensagem' texto='Enviar mensagem' tipo='submit' />
                      </fieldset>
                   </form>

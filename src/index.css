@@ -49,10 +49,6 @@ main{
   flex-grow: 1;
 }
 
-section{
-  width: 100vw;
-}
-
 h2, h3{
   font-size: 22px;
   font-style: normal;
