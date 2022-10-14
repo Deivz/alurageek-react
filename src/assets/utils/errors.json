@@ -35,5 +35,8 @@
     "descricao":{
         "required": "O campo descrição não pode estar vazio.",
         "max": "A descrição deve possuir no máximo 150 caracteres."
+    },
+    "imagem":{
+        "test": "O arquivo deve ser menor que 2Mb."
     }
 }

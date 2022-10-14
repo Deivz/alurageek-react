@@ -6,32 +6,47 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import CampoErro from '../../components/CampoErro';
 import BotaoEnviarArquivo from '../../components/BotaoEnviarArquivo';
+import ErroImagem from '../../components/ErroImagem';
+import { useState } from 'react';
 
 export default function AdicionarProduto() {
 
     let validacao = yup.object().shape({
+        imagem: yup.mixed().required()
+        .test('name', 'O produto precisa ter uma imagem.', value => {
+            console.log(value)
+            return value[0] && value[0].name !== '';
+        })
+        .test('fileSize', 'O arquivo precisa ser menor que 1.5Mb.', value => {
+            return value[0] && value[0].size <= 1500000;
+        })
+        .test('type', 'Somente imagens são permitidas.', value => {
+            return value[0] && value[0].type.includes('image');
+        }),
         categoria: yup.string().required().max(20),
         nomeProduto: yup.string().required().max(20),
         preco: yup.number().transform(value => (isNaN(value) ? undefined : value)).required().typeError().max(9999999999).positive(),
         descricao: yup.string().required().max(150),
     });
 
+    const [produtos, setProdutos] = useState([]);
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
         resolver: yupResolver(validacao)
     }, []);
 
-    function cadastrarProduto(produtos){
-        console.log(produtos);
-        reset();
+    function cadastrarProduto(produto){
+        // console.log(document.getElementById('imagem').files[0])
+        setProdutos(produto);
     }
 
     return (
         <section>
             <div className={`${styles.adicionarProduto} container`}>
                 <h3>Adicionar novo produto</h3>
-                <form className={styles.formulario__produto} onSubmit={handleSubmit(cadastrarProduto)}>
+                <form id="formulario" className={styles.formulario__produto} onSubmit={handleSubmit(cadastrarProduto)}>
                     <fieldset>
-                        <BotaoEnviarArquivo />
+                        <BotaoEnviarArquivo register={register} name='imagem' />
+                        {errors?.imagem?.message && <ErroImagem>{errors.imagem.message}</ErroImagem>}
                         <TextField
                             name='categoria'
                             {...register('categoria')}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styles from './botaoEnviarArquivo.module.css'
 
-export default function BotaoEnviarArquivo() {
+export default function BotaoEnviarArquivo({name, register}) {
 
     const [imagem, setImagem] = useState();
 
@@ -12,7 +12,7 @@ export default function BotaoEnviarArquivo() {
     return (
         <div className={styles.botao}>
             <label htmlFor='imagem'>Escolha a imagem do produto: </label>
-            <input type='file' accept=".png, .jpg, .jpeg" id='imagem' hidden onChange={pegarCaminhoImagem}/>
+            <input {...register(`${name}`)} type='file' name={name} accept=".png, .jpg, .jpeg" id='imagem' hidden onInput={pegarCaminhoImagem} />
             <div className={styles.container__input}>
                 <label htmlFor='imagem' className={styles.input}>Escolher imagem</label>
                 <p>{imagem}</p>
