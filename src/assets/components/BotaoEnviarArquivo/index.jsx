@@ -12,7 +12,7 @@ export default function BotaoEnviarArquivo({name, register}) {
     return (
         <div className={styles.botao}>
             <label htmlFor='imagem'>Escolha a imagem do produto: </label>
-            <input {...register(`${name}`)} type='file' name={name} accept=".png, .jpg, .jpeg" id='imagem' hidden onInput={pegarCaminhoImagem} />
+            <input type='file' {...register(`${name}`)} name={name} accept=".png, .jpg, .jpeg" id='imagem' hidden onInput={pegarCaminhoImagem} />
             <div className={styles.container__input}>
                 <label htmlFor='imagem' className={styles.input}>Escolher imagem</label>
                 <p>{imagem}</p>
