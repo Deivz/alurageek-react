@@ -20,7 +20,7 @@
     width: 100%;
 }
 
-.nome__produto, .preco__produto, .verProduto{
+.nome__produto, .preco__produto, .verProduto, .id__produto{
     margin-top: .5rem;
 }
 

@@ -3,14 +3,15 @@ import CardProduto from '../../components/CardProduto';
 import styles from './produtos.module.css';
 import { Link } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
-import http from '../../../http/index.js';
+// import http from '../../../http/index.js';
 import { BuscaContext } from '../../../contexts/BuscaContext';
-import { produtos } from '../../utils/produtos.js';
+import { ProdutosContext } from '../../../contexts/ProdutosContext';
 
 export default function Produtos() {
 
     const [categorias, setCategorias] = useState([]);
     const { busca } = useContext(BuscaContext);
+    const { produtos } = useContext(ProdutosContext);
 
     useEffect(() => {
 
@@ -32,7 +33,7 @@ export default function Produtos() {
         
         setCategorias(produtos);
 
-    }, []);
+    }, [produtos]);
 
     return (
         <section className={styles.secao__produtos}>

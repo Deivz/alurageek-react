@@ -27,7 +27,10 @@ export default function Secao({ produtos, titulo, verTudo }) {
                {desktopScreen
                   ?
                   produtos.map(produto => {
-                     return <CardProduto admin={false} produto={produto} key={produto.id} />
+                     contador++;
+                     if (contador < 7) {
+                        return <CardProduto admin={false} produto={produto} key={produto.id} />
+                     }
                   })
                   :
                   produtos.map(produto => {

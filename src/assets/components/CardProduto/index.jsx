@@ -6,10 +6,10 @@ export default function CardProduto({admin, produto}){
         <div className={styles.card}>
             <img className={styles.imagem__produto} src={produto.imagem} alt='Foto do produto' />
             <h4 className={styles.nome__produto}>{produto.nome}</h4>
-            <p className={styles.preco__produto}>{produto.preco}</p>
+            <p className={styles.preco__produto}>R$ {produto.preco.toFixed(2).replace('.', ',')}</p>
             {
                 admin ?
-                <p>#{produto.id}</p>
+                <p className={styles.id__produto}>#{produto.id}</p>
                 :
                 <Link to={`/produtos/${produto.id}`}>
                     <p className={styles.verProduto}>Ver produto</p>

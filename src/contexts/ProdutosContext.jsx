@@ -3,13 +3,25 @@ import { produtos } from '../assets/utils/produtos';
 
 export const ProdutosContext = createContext();
 
-export default function ProdutosContextProvider({ children }){
+export default function ProdutosContextProvider({ children }) {
+
+    const produtosArmazenados = JSON.parse(sessionStorage.getItem('produtos'));
+
+    if (produtosArmazenados) {
+        produtosArmazenados.map(produto => {
+            const indice = produtos.findIndex(categoria => categoria.titulo === produto.categoria);
+            produtos[indice].produtos.push(produto);
+        });
+    }
 
     const categorias = produtos.map(categoria => categoria);
 
-    return(
-        <ProdutosContext.Provider value={{ categorias, produtos }}>
-            { children }
+    const quantidadeProdutos = produtos.map(produtos => produtos.produtos.length);
+    let totalProdutos = quantidadeProdutos.reduce((totalProdutos, produto) => totalProdutos + produto, 0);
+
+    return (
+        <ProdutosContext.Provider value={{ categorias, produtos, totalProdutos, setTotalProdutos }}>
+            {children}
         </ProdutosContext.Provider>
     );
 }

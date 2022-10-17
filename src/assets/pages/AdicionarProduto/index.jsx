@@ -5,39 +5,34 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import CampoErro from '../../components/CampoErro';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { ProdutosContext } from '../../../contexts/ProdutosContext';
 
 export default function AdicionarProduto() {
 
     let validacao = yup.object().shape({
         imagem: yup.string().required(),
-        // .test('name', 'O produto precisa ter uma imagem.', value => {
-        //     return value[0] && value[0].name !== '';
-        // })
-        // .test('fileSize', 'O arquivo precisa ser menor que 1.5Mb.', value => {
-        //     return value[0] && value[0].size <= 1500000;
-        // })
-        // .test('type', 'Somente imagens são permitidas.', value => {
-        //     return value[0] && value[0].type.includes('image');
-        // }),
         categoria: yup.string().required().max(20),
         nome: yup.string().required().max(20),
         preco: yup.number().transform(value => (isNaN(value) ? undefined : value)).required().typeError().max(9999999999).positive(),
         descricao: yup.string().required().max(150),
     });
 
-    const [produtos, setProdutos] = useState([]);
+    const { produtos, totalProdutos } = useContext(ProdutosContext);
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
         resolver: yupResolver(validacao)
     }, []);
 
-    function cadastrarProduto(produto){
-        sessionStorage.setItem('produto', JSON.stringify(produto));    
-    }
+    function cadastrarProduto(produto) {
+        let produtosArmazenados = JSON.parse(sessionStorage.getItem('produtos') || '[]');
+        produtosArmazenados.push(produto);
+        sessionStorage.setItem('produtos', JSON.stringify(produtosArmazenados));
 
-    useEffect(() => {
+        const categoriaProduto = produtos.filter(categorias => categorias.titulo === produto.categoria);
+        categoriaProduto[0].produtos.push(produto);
         reset();
-    }, [produtos]);
+        alert("Poduto adicionado com sucesso!");
+    }
 
     return (
         <section>
@@ -45,6 +40,7 @@ export default function AdicionarProduto() {
                 <h3>Adicionar novo produto</h3>
                 <form id="formulario" className={styles.formulario__produto} onSubmit={handleSubmit(cadastrarProduto)}>
                     <fieldset>
+                        <input hidden name='id' {...register('id')} value={totalProdutos + 1} />
                         <TextField
                             name='imagem'
                             {...register('imagem')}
