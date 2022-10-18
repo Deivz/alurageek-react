@@ -30,7 +30,6 @@
 @media (min-width: 750px){
     .informacoes{
         display: flex;
-        justify-content: space-between;
         margin: 2rem auto;
     }
 

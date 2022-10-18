@@ -13,6 +13,7 @@ export default function DescricaoProduto() {
 
     useEffect(() => {
         const categoria = categorias.find(categoria => categoria.produtos.find(produto => (produto.id === parseInt(parametros.id))));
+        console.log(categorias);
         setProdutoPorCategoria(categoria);
         setProduto(categoria.produtos.find(produto => produto.id === parseInt(parametros.id)))
     }, [categorias, parametros]);
@@ -39,7 +40,7 @@ export default function DescricaoProduto() {
                     </div>
                     <div>
                         <h2 className={styles.titulo__produto}>{produto.nome}</h2>
-                        <p className={styles.preco__produto}>{produto.preco}</p>
+                        <p className={styles.preco__produto}>R$ {produto.preco}</p>
                         <p className={styles.descricao__produto}>{produto.descricao}</p>
                     </div>
                 </div>

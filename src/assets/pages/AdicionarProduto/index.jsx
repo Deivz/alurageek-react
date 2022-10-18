@@ -5,12 +5,14 @@ import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import CampoErro from '../../components/CampoErro';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { ProdutosContext } from '../../../contexts/ProdutosContext';
+// import http from '../../../http/index.js';
 
 export default function AdicionarProduto() {
 
     let validacao = yup.object().shape({
+        id: yup.number(),
         imagem: yup.string().required(),
         categoria: yup.string().required().max(20),
         nome: yup.string().required().max(20),
@@ -18,20 +20,39 @@ export default function AdicionarProduto() {
         descricao: yup.string().required().max(150),
     });
 
-    const { produtos, totalProdutos } = useContext(ProdutosContext);
+    const { totalProdutos, setTotalProdutos } = useContext(ProdutosContext);
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
         resolver: yupResolver(validacao)
     }, []);
 
     function cadastrarProduto(produto) {
+
+        //para enviar para uma API usar o código abaixo
+
+        // http.post('/categorias', {
+        //     "titulo": produto.categoria,
+        //     "produtos": [{
+        //         "id": produto.id,
+        //         "imagem": produto.imagem,
+        //         "nome": produto.nome,
+        //         "preco": produto.preco,
+        //         "descricao": produto.descricao
+        //     }]
+        // }).then(() => {
+        //     alert("Produto inserido com sucesso!");
+        //     reset();
+        // }).catch(err => alert(err.message));
+
+        //o código abaixo é um mock para utilização sem API, caso exista uma API comentar código abaixo e utilizar o código acima
+
         let produtosArmazenados = JSON.parse(sessionStorage.getItem('produtos') || '[]');
         produtosArmazenados.push(produto);
         sessionStorage.setItem('produtos', JSON.stringify(produtosArmazenados));
-
-        const categoriaProduto = produtos.filter(categorias => categorias.titulo === produto.categoria);
-        categoriaProduto[0].produtos.push(produto);
         reset();
         alert("Poduto adicionado com sucesso!");
+        setTotalProdutos(totalProdutos + 1);
+
+        //fim do mock
     }
 
     return (
@@ -40,7 +61,7 @@ export default function AdicionarProduto() {
                 <h3>Adicionar novo produto</h3>
                 <form id="formulario" className={styles.formulario__produto} onSubmit={handleSubmit(cadastrarProduto)}>
                     <fieldset>
-                        <input hidden name='id' {...register('id')} value={totalProdutos + 1} />
+                        <input hidden name='id' {...register('id')} value={totalProdutos + 1} /> {/* input inserido para realização do mock, remover se existir API */}
                         <TextField
                             name='imagem'
                             {...register('imagem')}
