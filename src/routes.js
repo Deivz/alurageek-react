@@ -13,8 +13,6 @@ import ScreenContextProvider from './contexts/ScreenContext';
 
 export default function AppRouter() {
 
-    
-
     function Private({children}){
         const { autenticado } = useContext(AutenticacaoContext);
 

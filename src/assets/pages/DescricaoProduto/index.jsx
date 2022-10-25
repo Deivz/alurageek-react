@@ -13,7 +13,6 @@ export default function DescricaoProduto() {
 
     useEffect(() => {
         const categoria = categorias.find(categoria => categoria.produtos.find(produto => (produto.id === parseInt(parametros.id))));
-        console.log(categorias);
         setProdutoPorCategoria(categoria);
         setProduto(categoria.produtos.find(produto => produto.id === parseInt(parametros.id)))
     }, [categorias, parametros]);
